@@ -1,0 +1,111 @@
+<div
+    class="bg-[#FAFAFA] border-2 border-gray-200 shadow-xl relative container max-w-lg mx-auto h-screen overflow-scroll min-h-screen">
+
+    <div class="flex relative w-full p-3 shadow-sm border-b-[1px] items-center justify-center border-[#DBDBDB]">
+        <button (click)="showMenu()"
+            class="absolute left-0 top-0 bottom-0 flex items-center justify-center px-2 cursor-pointer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M20.5496 4.54961L13.0496 12.0496L20.4996 19.4996C20.7996 19.7996 20.7996 20.2496 20.4996 20.5496C20.1996 20.8496 19.7496 20.8496 19.4496 20.5496L11.9996 13.0496L4.54961 20.5496C4.24961 20.8496 3.79961 20.8496 3.49961 20.5496C3.19961 20.2496 3.19961 19.7996 3.49961 19.4996L10.9496 11.9996L3.44961 4.49961C3.14961 4.19961 3.14961 3.74961 3.44961 3.44961C3.74961 3.14961 4.19961 3.14961 4.49961 3.44961L11.9996 10.9496L19.4996 3.44961C19.7996 3.14961 20.2496 3.14961 20.5496 3.44961C20.8496 3.74961 20.8496 4.24961 20.5496 4.54961Z"
+                    fill="#262626" />
+            </svg>
+        </button>
+        <span class="text-[#262626] font-medium">Options</span>
+    </div>
+
+    <main class="flex flex-col py-4 space-y-1">
+        <span class="text-[#8E8E8E] py-2 mx-4">OPTIONS</span>
+        <a (click)="showMenu()" routerLink="/accounts/signup"
+            class="relative flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Sign Up</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a (click)="showMenu()" routerLink="/accounts/login"
+            class="relative flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Log In</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Download App</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Language</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <span class="text-[#8E8E8E] py-2  mx-4">ABOUT</span>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Ads</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Help Center</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <button (click)="showMoreMenu()"
+            class="relative flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>More</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
+        <span class="text-[#8E8E8E] py-2 mx-4">DIRECTORIES</span>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Hashtags</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a (click)="showMenu()"
+            class="relative cursor-pointer flex items-center shadow-sm bg-white py-2 px-4 justify-between">
+            <span>Profiles</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#8E8E8E]" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+    </main>
+</div>

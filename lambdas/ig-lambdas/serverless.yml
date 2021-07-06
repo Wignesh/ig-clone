@@ -1,0 +1,85 @@
+service: ig-lambdas
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  lambdaHashingVersion: "20201221"
+  environment:
+    tableName: ${self:custom.igTableName}
+    imageUploadBucket: ${self:custom.imageUploadBucket}
+    region: ${self:provider.region}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+        - dynamodb:*
+      Resource: "*"
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
+
+custom:
+  imageUploadBucket: ig-clone-image-upload-bucket-09
+  igTableName: ig-clone-posts
+  cognitoUserPool: arn:aws:cognito-idp:us-east-1:088190408337:userpool/us-east-1_GeXTN6Nsu
+
+functions:
+  hello:
+    handler: lambdas/endpoints/hello.handler
+    events:
+      - http:
+          path: /
+          method: get
+  newPost:
+    handler: lambdas/endpoints/newPost.handler
+    events:
+      - http:
+          path: new-post
+          cors: true
+          method: post
+          authorizer:
+            type: COGNITO_USER_POOLS
+            arn: ${self:custom.cognitoUserPool}
+  feeds:
+    handler: lambdas/endpoints/feeds.handler
+    events:
+      - http:
+          path: feeds
+          cors: true
+          method: get
+          # authorizer:
+          #   type: COGNITO_USER_POOLS
+          #   arn: arn:aws:cognito-idp:us-east-1:276874294099:userpool/us-east-1_YiaqNDltG
+
+resources:
+  Resources:
+    ImageUploadBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.imageUploadBucket}
+        AccessControl: PublicRead
+    IGDynamoDB:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.igTableName}
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+        # GlobalSecondaryIndexes:
+        #   - IndexName: game-index
+        #     KeySchema:
+        #       - AttributeName: game
+        #         KeyType: HASH
+        #     Projection:
+        #       ProjectionType: ALL

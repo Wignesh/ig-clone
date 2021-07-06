@@ -1,0 +1,33 @@
+<app-nav-signup></app-nav-signup>
+
+<main class="flex flex-col items-center px-10">
+
+    <div class="w-full flex flex-col mt-8 space-y-3">
+        <span class="font-medium text-center">Enter Confirmation Code</span>
+        <p class="text-sm text-[#8E8E8E] text-center">
+            Enter the code we sent to {{phone == "" ? "registred phone" : phone}}.
+            <br>
+            <a (click)="resend()" class=" font-medium text-[#0095F6]">Resend SMS</a>
+        </p>
+        <p *ngIf="isResend" class="text-xs text-[#ed4956]">Code has been resend.</p>
+        <input [disabled]="isLoading" [(ngModel)]="code" [ngClass]="isError ? 'border-[#ed4956]' : ''" type="text"
+            placeholder="Confirmation code" maxlength="6"
+            class="w-full focus:border-[#8E8E8E] rounded-md bg-[#FAFAFA] border-[#DBDBDB] border-[1px] px-4 py-3 focus:outline-none placeholder-[#8E8E8E] text-sm">
+        <p *ngIf="isError" class="text-xs text-[#ed4956]">{{errorMsg}}</p>
+
+        <button (click)="next()" [disabled]="code.length < 6" type="button" [ngClass]="isLoading ? 'cursor-wait' : ''"
+            class="w-full disabled:opacity-30 flex items-center justify-center space-x-2 bg-[#0095F6] p-2 font-semibold text-white rounded-md my-4">
+            <span>{{isLoading ? "" : "Next"}}</span>
+
+            <svg *ngIf="isLoading" viewBox="0 0 16 16" fill="none" data-view-component="true" width="32" height="32"
+                class="anim-rotate w-6 h-6">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2"
+                    vector-effect="non-scaling-stroke"></circle>
+                <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    vector-effect="non-scaling-stroke"></path>
+            </svg>
+        </button>
+    </div>
+
+</main>
+<router-outlet></router-outlet>

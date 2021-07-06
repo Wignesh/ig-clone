@@ -1,0 +1,56 @@
+<div class="flex relative w-full p-3 shadow-sm border-b-[1px] items-center justify-center border-[#DBDBDB]">
+    <button (click)="navBack()"
+        class="absolute left-0 top-0 bottom-0 flex items-center justify-center px-2 cursor-pointer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M16.7504 3.99961C16.7504 4.19961 16.7004 4.39961 16.5504 4.54961L9.05039 11.9996L16.5504 19.4496C16.8504 19.7496 16.8504 20.1996 16.5504 20.4996C16.2504 20.7996 15.8004 20.7996 15.5004 20.4996L7.50039 12.4996C7.20039 12.1996 7.20039 11.7496 7.50039 11.4496L15.5004 3.44961C15.8004 3.14961 16.2504 3.14961 16.5504 3.44961C16.7004 3.59961 16.7504 3.79961 16.7504 3.99961Z"
+                fill="#262626" />
+        </svg>
+    </button>
+    <span class="text-[#262626] font-semibold">New Post</span>
+</div>
+
+
+<main class="flex flex-col bg-[#FAFAFA items-center w-full min-h-screen">
+    <div class="w-full h-full" *ngIf="post.image">
+        <img [src]="post.image" class="w-full min-h-[50vh] max-h-[50vh] h-[50vh] object-cover" />
+        <div class="flex border items-center justify-center p-2 mt-2">
+            <img src="https://i.imgur.com/QswXjoP.jpg" alt="" class="bg-white w-10 h-10 object-contain rounded-full">
+            <textarea name="caption" class="p-2 resize-none focus:outline-none appearance-none w-full"
+                [(ngModel)]="post.caption" placeholder="Write a caption..."></textarea>
+            <img [src]="post.image" alt="" class="bg-white w-16 h-16 object-contain">
+        </div>
+    </div>
+</main>
+
+<div class="sticky bottom-0 left-0 right-0 w-full p-2 bg-[#FAFAFA]">
+    <input id="imagePicker" class="hidden" type="file" accept="image/jpeg,image/png,image/jpg"
+        (change)="handleInputChange($event)" />
+    <p class="text-[#ed4956] text-center text-sm" *ngIf="isError">{{errorMsg}}</p>
+
+    <div class="w-full flex justify-between items-center">
+        <input
+            class="disabled:opacity-30 w-1/3 cursor-pointer flex items-center justify-center space-x-2 bg-[#0095F6] p-2 font-semibold text-white rounded-md my-4"
+            type="button" value="{{post.image ? 'Change' : 'Browse'}}"
+            onclick="document.getElementById('imagePicker').click();" />
+        <!-- <input (click)="postImage()" [disabled]="!post.image || post.caption.length < 5"
+            class="disabled:opacity-30 w-1/3 cursor-pointer flex items-center justify-center space-x-2 bg-[#0095F6] p-2 font-semibold text-white rounded-md my-4"
+            type="button" value="Post" /> -->
+
+
+        <button (click)="postImage()" [ngClass]="isLoading ? 'cursor-wait' : ''" type="button"
+            [disabled]="!post.image || post.caption.length < 5"
+            class="w-1/3 disabled:opacity-30 flex items-center justify-center space-x-2 bg-[#0095F6] p-2 font-semibold text-white rounded-md my-4">
+            <span>{{isLoading ? "Posting.." : "Post"}}</span>
+
+            <svg *ngIf="isLoading" viewBox="0 0 16 16" fill="none" data-view-component="true" width="32" height="32"
+                class="anim-rotate w-6 h-6">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2"
+                    vector-effect="non-scaling-stroke"></circle>
+                <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    vector-effect="non-scaling-stroke"></path>
+            </svg>
+
+        </button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-igclone-dev-152315-authRole",
+            "UnauthRoleArn": "arn:aws:iam::088190408337:role/amplify-igclone-dev-152315-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::088190408337:role/amplify-igclone-dev-152315-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-igclone-dev-152315-deployment",
+            "UnauthRoleName": "amplify-igclone-dev-152315-unauthRole",
+            "StackName": "amplify-igclone-dev-152315",
+            "StackId": "arn:aws:cloudformation:us-east-1:088190408337:stack/amplify-igclone-dev-152315/feb62d30-de3f-11eb-afbe-0e449a166b2f",
+            "AmplifyAppId": "d3ntf1m1jt1o3s"
+        },
+        "categories": {
+            "auth": {
+                "igcloneebe18a72ebe18a72": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3ntf1m1jt1o3s",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}
